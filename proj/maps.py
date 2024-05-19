@@ -23,6 +23,9 @@ class Map:
     def set_object(self, pos, region):
         self.things[pos[0], pos[1]] = region
 
+    def clear_objects(self):
+        self.things = np.zeros((self.height, self.width), dtype=int)
+
 def setup_map(width, height):
     global g_map
     if g_map is not None:
