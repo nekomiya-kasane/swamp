@@ -20,8 +20,10 @@ class Object:
         self.velocity = 0
         self.target = None
         self.path = None
-        self.avatar = OffsetImage(plt.imread(avatar), zoom=avatar_zoom)
+        self.avatar = OffsetImage(plt.imread(avatar), zoom=avatar_zoom) if avatar else None
         self.available_tiles = []
+        self.enabled = True
+        self.type = Region.ANIMAL
 
     def draw(self):
         plt.annotate(self.name, self.pos)
@@ -55,5 +57,16 @@ class Object:
                 cmoved = self.pos[1] + random.choice([-1,0,1])
             self.pos[0], self.pos[1] = [rmoved, cmoved]
 
-            
+    def can_see(self, what, rang=1):
+        neighbor = g_map.map[
+            self.pos[0] - rang : self.pos[0] + rang, 
+            self.pos[1] - rang : self.pos[1] + rang
+        ]
+        for i in range(rang * 2 + 1):
+            for j in range(rang * 2 + 1):
+                if what == neighbor[i, j]:
+                    return True
+        return False
 
+    def get_path(self):
+        

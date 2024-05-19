@@ -1,0 +1,26 @@
+{
+    "width": 800,
+    "height": 600,
+    "animals": [
+        {
+            "type": "dog",
+            "pos": [300, 300]
+        },
+        {
+            "type": "dog",
+            "pos": [300, 400]
+        }
+    ],
+    "humans": [
+        {
+            "type": "human",
+            "pos": [300, 500]
+        }
+    ],
+    "toys": [
+        {
+            "type": "toy",
+            "pos": [100, 100]
+        }
+    ]
+}

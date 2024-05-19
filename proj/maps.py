@@ -2,17 +2,26 @@ import cv2
 import numpy as np
 
 g_map = None
+g_time = 0
 
 class Region:
     HOUSE = 0
     BACKYARD = 1
     WALL = 2
+    FOOD = 3
+    TOY = 4
+    ANIMAL = 5
+    HUMAN = 6
 
 class Map:
     def __init__(self, width, height):
         self.width = width
         self.height = height
         self.map = np.zeros((height, width), dtype=int)
+        self.things = np.zeros((height, width), dtype=int)
+
+    def set_object(self, pos, region):
+        self.things[pos[0], pos[1]] = region
 
 def setup_map(width, height):
     global g_map
@@ -26,6 +35,15 @@ def setup_map(width, height):
     g_map.map[:,0:3] = g_map.map[:,width-3:width] = Region.WALL
 
     return g_map
+
+def step_time():
+    global g_time
+    g_time = (g_time + 0.01) % 24
+    return g_time
+
+def get_time():
+    global g_time
+    return g_time
 
 
 
