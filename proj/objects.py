@@ -3,7 +3,7 @@ import numpy as np
 from matplotlib.offsetbox import OffsetImage, AnnotationBbox
 import random
 
-from proj.maps import *
+from maps import *
 
 g_directions8 = [(-1,0),(0,1),(0,1),(0,-1),(-1,1),(1,1),(1,-1),(-1,-1)]
 
@@ -29,6 +29,8 @@ class Object:
         plt.annotate(self.name, self.pos)
         box = AnnotationBbox(self.avatar, self.pos, frameon=False)
         plt.gca().add_artist(box)
+
+        g_map.things[self.pos[0], self.pos[1]] = self.type
 
     def set_target(self, target, velocity=1, callback=None):
         self.target = target
@@ -67,6 +69,3 @@ class Object:
                 if what == neighbor[i, j]:
                     return True
         return False
-
-    def get_path(self):
-        

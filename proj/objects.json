@@ -4,22 +4,26 @@
     "animals": [
         {
             "type": "dog",
+            "name": "dog 1",
             "pos": [300, 300]
         },
         {
             "type": "dog",
+            "name": "dog 2",
             "pos": [300, 400]
         }
     ],
     "humans": [
         {
             "type": "human",
+            "name": "human 1",
             "pos": [300, 500]
         }
     ],
     "toys": [
         {
             "type": "toy",
+            "name": "toy 1",
             "pos": [100, 100]
         }
     ]

@@ -1,5 +1,5 @@
-from proj.object import Object
-from proj.maps import *
+from objects import Object
+from maps import *
 import matplotlib.pyplot as plt
 
 class FoodPoint(Object):

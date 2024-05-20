@@ -1,4 +1,4 @@
-from proj.object import Object
+from objects import Object
 
 class HumanState:
     IDLE = 0
@@ -9,5 +9,3 @@ class Human(Object):
         self.human_state = HumanState.IDLE
         self.emotion = 100
         self.dogfood = 0
-
-    def 

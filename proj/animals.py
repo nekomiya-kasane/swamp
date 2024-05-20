@@ -1,5 +1,5 @@
-from proj.object import *
-from proj.manager import *
+from objects import *
+from manager import *
 
 class Dog(Object):
 

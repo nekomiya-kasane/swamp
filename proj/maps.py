@@ -1,4 +1,3 @@
-import cv2
 import numpy as np
 
 g_map = None
@@ -30,6 +29,8 @@ def setup_map(width, height):
     global g_map
     if g_map is not None:
         return g_map
+    
+    width, height = int(width), int(height)
     g_map = Map(width, height)
 
     g_map.map[:,:] = Region.BACKYARD
@@ -48,5 +49,6 @@ def get_time():
     global g_time
     return g_time
 
-
-
+def get_map():
+    global g_map
+    return g_map
