@@ -2,7 +2,7 @@ from objects import Object
 from maps import *
 import matplotlib.pyplot as plt
 
-class FoodPoint(Object):
+class Food(Object):
 
     def __init__(self, name, pos, quantity):
         super().__init__(name, pos, None)
@@ -11,6 +11,7 @@ class FoodPoint(Object):
     def draw(self):
         plt.annotate(self.name, self.pos)
         g_map[self.pos[0], self.pos[1]] = Region.FOOD
+        super().draw()
 
     def consume(self, quantity):
         self.quantity -= quantity
@@ -18,3 +19,8 @@ class FoodPoint(Object):
 
     def is_empty(self):
         return self.quantity == 0
+
+class Toy(Object):
+
+    def __init__(self, name, pos, avatar):
+        super().__init__(name, pos, avatar)

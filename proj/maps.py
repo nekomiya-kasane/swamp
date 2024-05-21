@@ -11,6 +11,7 @@ class Region:
     TOY = 4
     ANIMAL = 5
     HUMAN = 6
+    DOG_HOUSE = 7
 
 class Map:
     def __init__(self, width, height):
